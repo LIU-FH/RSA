@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="jsencrypt.min.js"></script>
+
+<script>
+    var pubkey='-----BEGIN PUBLIC KEY-----';
+    pubkey+='MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDAbfx4VggVVpcfCjzQ+nEiJ2DL';
+    pubkey+='nRg3e2QdDf/m/qMvtqXi4xhwvbpHfaX46CzQznU8l9NJtF28pTSZSKnE/791MJfV';
+    pubkey+='nucVcJcxRAEcpPprb8X3hfdxKEEYjOPAuVseewmO5cM+x7zi9FWbZ89uOp5sxjMn';
+    pubkey+='lVjDaIczKTRx+7vn2wIDAQAB';
+    pubkey+='-----END PUBLIC KEY-----';//公钥
+    // 利用公钥加密
+    var encrypt = new JSEncrypt();
+    encrypt.setPublicKey(pubkey);
+    var arr = {"id":1,"name": "盲僧", "password": "123456"};//请求参数
+    var encrypted = encrypt.encrypt(JSON.stringify(arr));
+    console.log(encrypted);//加密后的字符串
+</script>
+</html>
